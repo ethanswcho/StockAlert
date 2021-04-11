@@ -53,7 +53,7 @@ namespace StockAlert {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/StockAlert;component/scanpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/StockAlert;V1.0.0.0;component/scanpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ScanPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
