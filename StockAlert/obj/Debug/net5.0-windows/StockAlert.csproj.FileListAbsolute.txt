@@ -26,3 +26,7 @@ D:\Projects\StockAlert\StockAlert\bin\Debug\net5.0-windows\Microsoft.Xaml.Behavi
 D:\Projects\StockAlert\StockAlert\bin\Debug\net5.0-windows\de\MahApps.Metro.resources.dll
 D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\App.baml
 D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\StockAlert.csproj.CopyComplete
+D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\MainPage.g.cs
+D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\ScanPage.g.cs
+D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\MainPage.baml
+D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\ScanPage.baml

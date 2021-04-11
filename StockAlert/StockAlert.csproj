@@ -10,4 +10,10 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ScanPage.xmal">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -16,22 +16,18 @@ using System.Windows.Shapes;
 namespace StockAlert
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ScanPage.xaml
     /// </summary>
-    /// 
-    public partial class MainWindow
+    public partial class ScanPage : Page
     {
-
-        public MainWindow()
+        public ScanPage()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void showMainPage(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new MainPage());
+            this.NavigationService.Navigate(new MainPage());
         }
-        
     }
 }
