@@ -30,3 +30,4 @@ D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\MainPage.g.cs
 D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\ScanPage.g.cs
 D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\MainPage.baml
 D:\Projects\StockAlert\StockAlert\obj\Debug\net5.0-windows\ScanPage.baml
+D:\Projects\StockAlert\StockAlert\bin\Debug\net5.0-windows\HtmlAgilityPack.dll

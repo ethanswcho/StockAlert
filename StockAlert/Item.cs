@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace StockAlert
 {
-    class Class1
+    public enum Company
     {
+        NVIDIA,
+        AMD
+    }
+
+
+    // Represents an item (usually a GPU).
+    // Holds essential informatoin about this item
+    public class Item
+    {
+        public Item(int Price, Company Company, string CardName)
+        {
+            this.Price = Price;
+            this.Company = Company;
+            this.CardName = CardName;
+        }
+
+        public int Price { get;  }
+        public Company Company { get; }
+        public string CardName { get; }
+
     }
 }

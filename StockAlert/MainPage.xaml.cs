@@ -28,6 +28,8 @@ namespace StockAlert
         private void showScanPage(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new ScanPage());
+            string url = "https://www.canadacomputers.com/product_info.php?cPath=43_557_559&item_id=181376";
+            WebScraper ws = new WebScraper(url);
         }
     }
 

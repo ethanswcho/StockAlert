@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0cED/XCOGUDVKsM4zYJX/qb0/Hzz2ytaGnVi8CA40KFNF6ONhGPOTCI6nlOKGYi7s2ewJxVfJ0Q+LCpDIIQSrg==",
+  "dgSpecHash": "ueMk8/atKsTniVPxSP618Gg9EYDxiCbb0WI9RqFpajH/rgNsSqpY2/iHqrHL2GaxQpMlYHdyGfzvTjr48ayQQw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\StockAlert\\StockAlert\\StockAlert.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ethan Cho\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\Ethan Cho\\.nuget\\packages\\htmlagilitypack\\1.11.32\\htmlagilitypack.1.11.32.nupkg.sha512",
     "C:\\Users\\Ethan Cho\\.nuget\\packages\\mahapps.metro\\2.4.4\\mahapps.metro.2.4.4.nupkg.sha512",
     "C:\\Users\\Ethan Cho\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
     "C:\\Users\\Ethan Cho\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
