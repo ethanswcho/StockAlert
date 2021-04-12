@@ -36,8 +36,11 @@ namespace StockAlert
             {
                 case Website.CanadaComputers:
 
+                    // should be false
                     string url = "https://www.canadacomputers.com/product_info.php?cPath=43_557_559&item_id=181376";
-                    HtmlAgilityPack.HtmlDocument doc = web.Load(url);
+                    // should be true
+                    string url2 = "https://www.canadacomputers.com/product_info.php?cPath=43_557_559&item_id=114124";
+                    HtmlAgilityPack.HtmlDocument doc = web.Load(url2);
                     var root = doc.DocumentNode.SelectNodes("//div[@class='pi-prod-availability']")[0];
                     List<string> texts = new List<string>();
                     foreach (var node in root.DescendantNodesAndSelf())
