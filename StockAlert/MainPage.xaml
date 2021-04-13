@@ -12,25 +12,23 @@
     <Grid Width="1000" Height="600" VerticalAlignment="Top">
         <Canvas>
             <Button FontSize="15" Width="100" Height="50" Canvas.Top="40" Canvas.Right="300">NVIDIA</Button>
-            <StackPanel Width="600" Height="90" Orientation="Horizontal" Canvas.Top="110" Canvas.Right="50">
-                <Button FontSize="15" Width="100">3090</Button>
-                <Button FontSize="15" Width="100">3080</Button>
-                <Button FontSize="15" Width="100">3070</Button>
-                <Button FontSize="15" Width="100">3060TI</Button>
-                <Button FontSize="15" Width="100">3060</Button>
+            <StackPanel Width="500" Height="90" Orientation="Horizontal" Canvas.Top="110" Canvas.Right="100">
+                <Button FontSize="15" Width="100" Click="ButtonPressed">3090</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">3080</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">3070</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">3060TI</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">3060</Button>
             </StackPanel>
             <Button FontSize="15" Width="100" Height="50" Canvas.Top="220" Canvas.Right="300">AMD</Button>
-            <StackPanel Width="600" Height="90" Orientation="Horizontal" Canvas.Top="290" Canvas.Right="50">
-                <Button FontSize="15" Width="100">6900 XT</Button>
-                <Button FontSize="15" Width="100">6900</Button>
-                <Button FontSize="15" Width="100">6800 XT</Button>
-                <Button FontSize="15" Width="100">6800</Button>
-                <Button FontSize="15" Width="100">6700 XT</Button>
-                <Button FontSize="15" Width="100">6700</Button>
+            <StackPanel Width="500" Height="90" Orientation="Horizontal" Canvas.Top="290" Canvas.Right="100">
+                <Button FontSize="15" Width="100" Click="ButtonPressed">6900XT</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">6800XT</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">6800</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">6700XT</Button>
+                <Button FontSize="15" Width="100" Click="ButtonPressed">5700XT</Button>
             </StackPanel>
             <Button FontSize="15" Width="100" Height="50" Canvas.Top="400" Canvas.Right="300">Custom</Button>
-            <StackPanel Width="600" Height="90" Orientation="Horizontal" Canvas.Top="470" Canvas.Right="50">
-                <Button FontSize="15" Width="100"></Button>
+            <StackPanel Width="500" Height="90" Orientation="Horizontal" Canvas.Top="470" Canvas.Right="100">
                 <Button FontSize="15" Width="100"></Button>
                 <Button FontSize="15" Width="100"></Button>
                 <Button FontSize="15" Width="100"></Button>

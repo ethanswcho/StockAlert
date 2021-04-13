@@ -14,8 +14,21 @@ namespace StockAlert
     // Designed to batch scrape Memory Express GPUs
     class MEScraper
     {
-        public MEScraper(List<string> NVIDIAWanted)
+        public MEScraper(List<string> NVIDIAWanted, List<string> AMDWanted)
         {
+            Debug.WriteLine("Selected options:");
+            Debug.WriteLine("   NVIDIA:");
+            foreach (string model in NVIDIAWanted)
+            {
+                Debug.WriteLine("       " + model);
+            }
+            Debug.WriteLine("\n   AMD:");
+            foreach(string model in AMDWanted)
+            {
+                Debug.WriteLine("       " + model);
+            }
+            Debug.WriteLine("\n");
+
             this.initNVIDIALinks();
             this.initNVIDIAQuery(NVIDIAWanted);
             /*
@@ -25,6 +38,7 @@ namespace StockAlert
             */
         }
 
+        // Initialize website links for NVIDIA products
         private void initNVIDIALinks()
         {
             this.NVIDIALinks = new Dictionary<string, string>();
@@ -37,11 +51,7 @@ namespace StockAlert
             NVIDIALinks.Add("Test", "https://www.memoryexpress.com/Category/VideoCards?FilterID=d9eeb36d-9106-8db7-6cef-725efd164818");
         }
 
-        private void initAMDLinks()
-        {
-            this.AMDLinks = new Dictionary<string, string>();
-        }
-
+        // Initialize website link queries for NVIDIA products
         private void initNVIDIAQuery(List<string> wanted)
         {
             this.NVIDIAQuery = new OrderedDictionary();
@@ -52,6 +62,13 @@ namespace StockAlert
 
         }
 
+        // Initialize website links for AMD products
+        private void initAMDLinks()
+        {
+            this.AMDLinks = new Dictionary<string, string>();
+        }
+
+        // Initialize website link queries for AMD products
         private void initAMDQuery(List<string> wanted)
         {
             this.AMDQuery = new OrderedDictionary();
@@ -60,8 +77,6 @@ namespace StockAlert
                 this.AMDQuery.Add(name, this.AMDLinks[name]);
             }
         }
-
-        
 
         public void CheckStock()
         {
@@ -96,6 +111,7 @@ namespace StockAlert
                                             .Where(x => x.GetAttributeValue("class", "") == "c-shca-icon-item__body-inventory")
                                             .First();
                  }
+                // The stockNode is not there, the item is (probably) in stock.
                 catch (InvalidOperationException)
                 {
                     Debug.WriteLine("!!!Item is in stock! " + link);
@@ -103,12 +119,13 @@ namespace StockAlert
                 }
 
                 // The stockNode could be there, but it may not say "Out of Stock"
+                // stockNode says "Out of Stock"
                 if (stockNode.Descendants("span").First().InnerText == "Out of Stock")
                 {
                     Debug.WriteLine("Item is not in stock... " + link);
                 }
 
-                // The stockNode is there but it does not say out of stock! 
+                // The stockNode is there but it does not say out of stock. the item is (probably) in stock.
                 else
                 {
                     // Item is (potentially) in stock. Output the link!
@@ -117,7 +134,6 @@ namespace StockAlert
                 
             }
         }
-
 
         private HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
         private OrderedDictionary NVIDIAQuery;
