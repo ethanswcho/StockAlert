@@ -29,61 +29,13 @@ namespace StockAlert
         private void showScanPage(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new ScanPage());
-            List<string> wanted = new List<string>();
-            /*
-            wanted.Add("3060");
-            wanted.Add("3060TI");
-            wanted.Add("3070");
-            wanted.Add("3080");
-            wanted.Add("3090");
-            wanted.Add("Test");
-            */
+
+            //List models in descending order for uniformity
+            NVIDIAWanted = NVIDIAWanted.OrderByDescending(x => x).ToList();
+            AMDWanted = AMDWanted.OrderByDescending(x => x).ToList();
+
             MEScraper mes = new MEScraper(this.NVIDIAWanted, this.AMDWanted);
             mes.CheckStock();
-        }
-
-        //Buttons for adding NVIDIA cards
-        private void Clicked3090(object sender, RoutedEventArgs e)
-        {
-            NVIDIAWanted.Add("3090");
-        }
-        private void Clicked3080(object sender, RoutedEventArgs e)
-        {
-            NVIDIAWanted.Add("3080");
-        }
-        private void Clicked3070(object sender, RoutedEventArgs e)
-        {
-            NVIDIAWanted.Add("3070");
-        }
-        private void Clicked3060TI(object sender, RoutedEventArgs e)
-        {
-            NVIDIAWanted.Add("3060TI");
-        }
-        private void Clicked3060(object sender, RoutedEventArgs e)
-        {
-            NVIDIAWanted.Add("3060");
-        }
-
-        // Button for adding AMD cards
-        private void Clicked6900XT(object sender, RoutedEventArgs e)
-        {
-            AMDWanted.Add("6900XT");
-        }
-        private void Clicked6800XT(object sender, RoutedEventArgs e)
-        {
-            AMDWanted.Add("6800XT");
-        }
-        private void Clicked6800(object sender, RoutedEventArgs e)
-        {
-            AMDWanted.Add("6800");
-        }
-        private void Clicked6700XT(object sender, RoutedEventArgs e)
-        {
-            AMDWanted.Add("6700XT");
-        }
-        private void Clicked5700XT(object sender, RoutedEventArgs e)
-        {
-            AMDWanted.Add("5700XT");
         }
 
         // When a button is clicked, we need to check if this is the 1st click or 2nd click
@@ -141,7 +93,6 @@ namespace StockAlert
         {
             button.Background = defaultColor;
         }
-
 
         // Default color for the buttons
         private Brush defaultColor = (Brush)new BrushConverter().ConvertFrom("#FFF7F7F7");

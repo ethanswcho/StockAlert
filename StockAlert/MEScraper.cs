@@ -31,11 +31,8 @@ namespace StockAlert
 
             this.initNVIDIALinks();
             this.initNVIDIAQuery(NVIDIAWanted);
-            /*
-             * , List<string> AMDWanted
             this.initAMDLinks();
             this.initAMDQuery(AMDWanted);
-            */
         }
 
         // Initialize website links for NVIDIA products
@@ -66,6 +63,11 @@ namespace StockAlert
         private void initAMDLinks()
         {
             this.AMDLinks = new Dictionary<string, string>();
+            AMDLinks.Add("6900XT", "https://www.memoryexpress.com/Category/VideoCards?FilterID=a546466e-2a58-905e-129b-fc735319acbf");
+            AMDLinks.Add("6800XT", "https://www.memoryexpress.com/Category/VideoCards?FilterID=9705ada8-e2b2-0ac9-738e-5e92c99a5932");
+            AMDLinks.Add("6800", "https://www.memoryexpress.com/Category/VideoCards?FilterID=8d5ba2df-0447-8b14-4791-aee8db2800b0");
+            AMDLinks.Add("6700XT", "https://www.memoryexpress.com/Category/VideoCards?FilterID=0901d9d6-31e0-987f-382c-e66e7ee23a8a");
+            AMDLinks.Add("5700XT", "https://www.memoryexpress.com/Category/VideoCards?FilterID=0b1bde6f-293d-7718-bcce-dd2651933ddc");
         }
 
         // Initialize website link queries for AMD products
@@ -81,12 +83,22 @@ namespace StockAlert
         public void CheckStock()
         {
             Debug.WriteLine("=====Checking Stock in MEMORY EXPRESS=====");
+            // Loop over each data entry in NVIDIA query
             foreach (DictionaryEntry item in NVIDIAQuery)
             {
-                Debug.WriteLine("Checking stock for... " + item.Key);
+                Debug.WriteLine("Checking stock for NVIDIA: RTX" + item.Key);
                 this.ScrapePage((string)item.Value);
                 Debug.WriteLine("");
             }
+
+            // Loop over each data entry in AMD query
+            foreach (DictionaryEntry item in AMDQuery)
+            {
+                Debug.WriteLine("Checking stock for... Radeon: RX" + item.Key);
+                this.ScrapePage((string)item.Value);
+                Debug.WriteLine("");
+            }
+
         }
 
         private void ScrapePage(string URL)
@@ -95,6 +107,9 @@ namespace StockAlert
             HtmlAgilityPack.HtmlDocument doc = web.Load(URL);
             // Select all nodes that contain individual item information
             HtmlNodeCollection items = doc.DocumentNode.SelectNodes("//div[@class='c-shca-icon-item']");
+
+            Debug.WriteLine(" # of listed items: " + items.Count);
+
             foreach (HtmlNode item in items)
             {
                 // Link for this item (GPU)
@@ -114,7 +129,7 @@ namespace StockAlert
                 // The stockNode is not there, the item is (probably) in stock.
                 catch (InvalidOperationException)
                 {
-                    Debug.WriteLine("!!!Item is in stock! " + link);
+                    Debug.WriteLine(" !!!Item is in stock! " + link);
                     continue;
                 }
 
@@ -122,14 +137,14 @@ namespace StockAlert
                 // stockNode says "Out of Stock"
                 if (stockNode.Descendants("span").First().InnerText == "Out of Stock")
                 {
-                    Debug.WriteLine("Item is not in stock... " + link);
+                    Debug.WriteLine(" Item is not in stock... " + link);
                 }
 
                 // The stockNode is there but it does not say out of stock. the item is (probably) in stock.
                 else
                 {
                     // Item is (potentially) in stock. Output the link!
-                    Debug.WriteLine("!!!Item is in stock! " + link);
+                    Debug.WriteLine(" !!!Item is in stock! " + link);
                 }
                 
             }
