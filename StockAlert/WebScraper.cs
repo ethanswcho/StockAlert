@@ -22,21 +22,20 @@ namespace StockAlert
         // Scrape the web - the method will be different depending on the website.
         public virtual void Scrape(Dictionary<Maker, Dictionary<string, string>> URLDict)
         {
-            Debug.WriteLine("2");
         }
         
         // When we find an item that is in stock, alert the user
-        public void InStock()
+        public void InStock(string link)
         {
             //Make Noise
             //Record somewhere
             //open link (only once)
-            Debug.WriteLine("In Stock");
+            Debug.WriteLine("               In Stock: " + link);
         }
 
         public void NotInStock()
         {
-            Debug.WriteLine("Not in Stock");
+            Debug.WriteLine("               Not in Stock");
         }
 
         // HtmlAgilityPack variable used by child scrapers to access the web.

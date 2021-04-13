@@ -38,26 +38,19 @@ namespace StockAlert
             switch (w)
             {
                 case Website.CanadaComputers:
-                    Debug.WriteLine("a");
                     return ccs;
                     break;
 
                 case Website.MemoryExpress:
-                    Debug.WriteLine("b");
                     return mes;
                     break;
 
                 default:
-                    Debug.WriteLine("c");
                     return new WebScraper();
                     break;
             }
         }
 
-
-        private WebScraper Scraper;
-
-        private Dictionary<Website, MEScraper> ScraperDict;
         private MEScraper mes;
         private CCScraper ccs;
     }
