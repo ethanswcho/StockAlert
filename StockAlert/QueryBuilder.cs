@@ -50,6 +50,8 @@ namespace StockAlert
             this.NVIDIAWanted = NVIDIAWanted;
             this.AMDWanted = AMDWanted;
             this.initURLDict();
+
+            Debug.WriteLine("Loaded URLS:");
             this.PrettyPrintDict(this.URLDict);
         }
 
@@ -138,6 +140,7 @@ namespace StockAlert
                     Query[w][Maker.AMD].Add(model, URLDict[w][Maker.AMD][model]);
                 }
             }
+            Debug.WriteLine("Filtered Query:");
             this.PrettyPrintDict(Query);
             return Query;
         }

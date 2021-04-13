@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace StockAlert
 {
-    class CCScraper
+    class CCScraper : WebScraper
     {
+        public CCScraper()
+        {
+            ws = Website.CanadaComputers;
+        }
 
+        public override void Scrape(Dictionary<Maker, Dictionary<string, string>> URLDict)
+        {
+            base.Scrape(URLDict);
+        }
     }
 }
