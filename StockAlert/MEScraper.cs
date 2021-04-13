@@ -9,10 +9,11 @@ using System.Collections;
 // Debug.WriteLine();
 using System.Diagnostics;
 
+/*
 namespace StockAlert
 {
     // Designed to batch scrape Memory Express GPUs
-    class MEScraper
+    class MEScraper : WebScraper
     {
         public MEScraper(List<string> NVIDIAWanted, List<string> AMDWanted)
         {
@@ -51,12 +52,7 @@ namespace StockAlert
         // Initialize website link queries for NVIDIA products
         private void initNVIDIAQuery(List<string> wanted)
         {
-            this.NVIDIAQuery = new OrderedDictionary();
-            foreach(string name in wanted)
-            {
-                this.NVIDIAQuery.Add(name, this.NVIDIALinks[name]);
-            }
-
+            
         }
 
         // Initialize website links for AMD products
@@ -149,11 +145,6 @@ namespace StockAlert
                 
             }
         }
-
-        private HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
-        private OrderedDictionary NVIDIAQuery;
-        private OrderedDictionary AMDQuery;
-        private Dictionary<string, string> NVIDIALinks;
-        private Dictionary<string, string> AMDLinks;
     }
 }
+*/

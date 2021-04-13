@@ -34,8 +34,13 @@ namespace StockAlert
             NVIDIAWanted = NVIDIAWanted.OrderByDescending(x => x).ToList();
             AMDWanted = AMDWanted.OrderByDescending(x => x).ToList();
 
+            QueryBuilder qb = new QueryBuilder(NVIDIAWanted, AMDWanted);
+            var Query = qb.BuildAndGetQuery();
+
+            /*
             MEScraper mes = new MEScraper(this.NVIDIAWanted, this.AMDWanted);
             mes.CheckStock();
+            */
         }
 
         // When a button is clicked, we need to check if this is the 1st click or 2nd click

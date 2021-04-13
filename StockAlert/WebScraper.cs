@@ -3,87 +3,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
-using System.Collections.Generic;
-// Debug.WriteLine();
 using System.Diagnostics;
+using System.Collections.Specialized;
+using HtmlAgilityPack;
 
+/*
 namespace StockAlert
 {
-    public enum Website
+    interface IWebScraper
     {
-        NewEgg,
-        CanadaComputers,
-        MemoryExpress
-    }
 
-    class WebScraper
-    {
-        public WebScraper(string URL)
+        public WebScraper(List<string> NVIDIAWanted, List<string> AMDWanted)
         {
-            this.Website = Website.CanadaComputers;
-            this.URL = URL;
-            this.DoWebScrape();
-        }
-        // Called upon object initialization. 
-        // Scrape the URL and from found field make an Item and set it as this field
-        private void DoWebScrape()
-        {
-            HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
-            bool InStock = false;
-
-            switch (this.Website)
+            Debug.WriteLine("Selected options:");
+            Debug.WriteLine("   NVIDIA:");
+            foreach (string model in NVIDIAWanted)
             {
-                case Website.CanadaComputers:
-
-                    // should be false
-                    string url = "https://www.canadacomputers.com/product_info.php?cPath=43_557_559&item_id=181376";
-                    // should be true
-                    string url2 = "https://www.canadacomputers.com/product_info.php?cPath=43_557_559&item_id=114124";
-                    HtmlAgilityPack.HtmlDocument doc = web.Load(url2);
-                    var root = doc.DocumentNode.SelectNodes("//div[@class='pi-prod-availability']")[0];
-                    List<string> texts = new List<string>();
-                    foreach (var node in root.DescendantNodesAndSelf())
-                    {
-                        if (!node.HasChildNodes)
-                        {
-                            string text = node.InnerText;
-                            if (!string.IsNullOrEmpty(text.Trim()))
-                                texts.Add(text.Trim());         
-                        }
-                    }
-                    foreach(string i in texts){
-                        Debug.WriteLine(i);
-                    }
-
-                    // If it's not BOTH not available online AND in-store, then it's probably in stock (either online or in-store)
-                    InStock = !(texts.Contains("Not Available Online") & texts.Contains("In-Store Out Of Stock"));
-                    Debug.WriteLine(InStock);
-                    break;
-
-                case Website.MemoryExpress:
-                    break;
-
-                case Website.NewEgg:
-                    break;
+                Debug.WriteLine("       " + model);
             }
+            Debug.WriteLine("\n   AMD:");
+            foreach (string model in AMDWanted)
+            {
+                Debug.WriteLine("       " + model);
+            }
+            Debug.WriteLine("\n");
 
-            this.InStock = InStock;
-
-            this.Item = new Item(0, Company.NVIDIA, "0");
+            this.initNVIDIALinks();
+            this.initNVIDIAQuery(NVIDIAWanted);
+            this.initAMDLinks();
+            this.initAMDQuery(AMDWanted);
         }
 
-        // Visit this itemURL and update InStock field
-        public void CheckStock()
+        private void initNVIDIALinks()
         {
-            // Stub
-            this.InStock = false;
+
         }
 
-        private string text;
-        private Website Website;
-        private string URL;
-        private Item Item { get; set; }
-        private bool InStock { get; set; }
+        public void initNVIDIAQuery(List<string> wanted)
+        {
+            this.NVIDIAQuery = new OrderedDictionary();
+            foreach (string name in wanted)
+            {
+                this.NVIDIAQuery.Add(name, this.NVIDIALinks[name]);
+            }
+        }
+
+        private void initAMDLinks()
+        {
+
+        }
+
+        private void initAMDQuery(List<string> wanted)
+        {
+            this.AMDQuery = new OrderedDictionary();
+            foreach (string name in wanted)
+            {
+                this.AMDQuery.Add(name, this.AMDLinks[name]);
+            }
+        }
+
+        private void ScrapePage(string URL)
+        {
+
+        }
+
+        protected private HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
+        protected private OrderedDictionary NVIDIAQuery;
+        protected private OrderedDictionary AMDQuery;
+        protected private Dictionary<string, string> NVIDIALinks;
+        protected private Dictionary<string, string> AMDLinks;
+
     }
 }
+*/
