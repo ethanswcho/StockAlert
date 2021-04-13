@@ -88,6 +88,5 @@ namespace StockAlert
             }
         }
 
-        private Website ws;
     }
 }

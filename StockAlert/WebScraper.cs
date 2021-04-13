@@ -41,6 +41,8 @@ namespace StockAlert
 
         // HtmlAgilityPack variable used by child scrapers to access the web.
         protected HtmlWeb web;
+        // Notes which Website this scraper is for
+        protected Website ws;
 
     }
 }
