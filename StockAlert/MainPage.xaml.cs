@@ -33,8 +33,10 @@ namespace StockAlert
             //List models in descending order for uniformity
             NVIDIAWanted = NVIDIAWanted.OrderByDescending(x => x).ToList();
             AMDWanted = AMDWanted.OrderByDescending(x => x).ToList();
-            NVIDIAWanted.Add("Test1");
-            NVIDIAWanted.Add("Test2");
+            
+            // If testing:
+            //NVIDIAWanted.Add("Test1");
+            //NVIDIAWanted.Add("Test2");
 
             // Build Query to only search for selected models/makers
             QueryBuilder qb = new QueryBuilder(NVIDIAWanted, AMDWanted);
@@ -42,7 +44,6 @@ namespace StockAlert
 
             StockChecker sc = new StockChecker();
             sc.CheckStock(Query);
-
         }
 
         // When a button is clicked, we need to check if this is the 1st click or 2nd click

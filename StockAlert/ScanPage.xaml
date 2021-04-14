@@ -5,14 +5,57 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StockAlert"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="620" d:DesignWidth="1000"
       Title="ScanPage"
       ShowsNavigationUI="False">
-    
+
 
 
     <Canvas>
-    <Button FontSize="15" Width="100" Height="50" Canvas.Top="0" Canvas.Left="0" Click="showMainPage">Back</Button>
+        <Button FontSize="15" Width="70" Height="50" Canvas.Top="0" Canvas.Left="0" Click="showMainPage" BorderThickness="0">Back</Button>
+        
+        <StackPanel Orientation="Vertical" Canvas.Top="40" Canvas.Left="20">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Margin" Value="10,10,10,10"/>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="0,0,10,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,-5">
+                <TextBlock FontSize="20" Text="Searching..." Margin="10,0,0,0"></TextBlock>
+                <TextBlock FontSize="20" Text="(Loop#6)" Margin="10,0,0,0"></TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="WebsiteBar" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" FontSize="30" x:Name="Website" Text="Website:"/>
+                <TextBlock FontSize="30" x:Name="MemoryExpress" Text="MemoryExpress"/>
+                <TextBlock FontSize="30" x:Name="CanadaComputers" Text="CanadaComputers"/>
+            </StackPanel>
+            <StackPanel x:Name="NVIDIABar" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" FontSize="30" Text="NVIDIA:"/>
+                <TextBlock FontSize="30" Text="3090"/>
+                <TextBlock FontSize="30" Text="3090"/>
+                <TextBlock FontSize="30" Text="3060TI"/>
+            </StackPanel>
+            <StackPanel x:Name="AMDBar" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" FontSize="30" Text="AMD:"/>
+                <TextBlock FontSize="30" Text="6900XT"/>
+                <TextBlock FontSize="30" Text="6800XT"/>
+                <TextBlock FontSize="30" Text="6800"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Canvas.Top="250" Canvas.Left="25">
+            <TextBlock FontSize="20" FontWeight="Bold" Text="   Items in Stock:" Margin="0,0,0,5"></TextBlock>
+            <ScrollViewer>
+                <Border BorderThickness="1" BorderBrush="Black" >
+                    <TextBlock x:Name="Result" Width="950" Height="290" ></TextBlock>
+                </Border>
+            </ScrollViewer>
+
+        </StackPanel>
+
     </Canvas>
 
 </Page>

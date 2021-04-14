@@ -75,7 +75,7 @@ namespace StockAlert
                 {"3070", "https://www.memoryexpress.com/Category/VideoCards?FilterID=e3034e65-f2ac-35f1-26eb-277b7a7e9ce9" },
                 {"3060TI", "https://www.memoryexpress.com/Category/VideoCards?FilterID=75668704-944f-8e1a-4cca-036beb9638a8" },
                 {"3060", "https://www.memoryexpress.com/Category/VideoCards?FilterID=f1b0a6e4-f41e-5fea-c242-d1bac7b02bf2"},
-                // Link for testing. Should return 1 in stock.
+                // Links for testing. Should return 1 in stock.
                 {"Test1", "https://www.memoryexpress.com/Category/VideoCards?FilterID=d9eeb36d-9106-8db7-6cef-725efd164818"},
                 {"Test2", "https://www.memoryexpress.com/Category/SingleBoardComputers" }
             };
@@ -99,7 +99,8 @@ namespace StockAlert
                 {"3070", "https://www.canadacomputers.com/index.php?cPath=43&sf=:3_7&mfr=&pr=" },
                 {"3060TI", "https://www.canadacomputers.com/index.php?cPath=43&sf=:3_8&mfr=&pr=" },
                 {"3060", "https://www.canadacomputers.com/index.php?cPath=43&sf=:3_9&mfr=&pr="},
-                // Link for testing. Should few in stock.
+
+                // Links for testing.
                 {"Test1", "https://www.canadacomputers.com/index.php?cPath=43&sf=:3_27&mfr=&pr="},
                 {"Test2", "https://www.canadacomputers.com/index.php?cPath=4&sf=:2_2&mfr=&pr="}
                 

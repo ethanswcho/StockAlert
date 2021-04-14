@@ -22,6 +22,7 @@ namespace StockAlert
     {
         public ScanPage()
         {
+
             InitializeComponent();
         }
 

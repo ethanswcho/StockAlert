@@ -9,6 +9,6 @@
         ResizeMode="NoResize"
         Title="Stock Alert" Width="1000" Height="620">
     <Grid>
-        <Frame x:Name="frame"/>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </mah:MetroWindow>
