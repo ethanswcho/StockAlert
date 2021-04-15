@@ -7,12 +7,13 @@ using HtmlAgilityPack;
 using System.Collections;
 // Debug.WriteLine();
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace StockAlert
 {
     class CCScraper : WebScraper
     {
-        public CCScraper()
+        public CCScraper(UIManager uim) : base(uim)
         {
             ws = Website.CanadaComputers;
         }
@@ -27,6 +28,8 @@ namespace StockAlert
                 {
                     // Write Model
                     Debug.WriteLine("       " + l2.Key);
+                    //Task.Factory.StartNew(() => this.uim.UpdateUI(l2.Key));
+                    
                     // Scrape the given page for given model ex) RTX 30080
                     ScrapePage(l2.Value);
                     Debug.WriteLine("");

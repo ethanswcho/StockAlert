@@ -25,7 +25,7 @@
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,-5">
                 <TextBlock FontSize="20" Text="Searching..." Margin="10,0,0,0"></TextBlock>
-                <TextBlock FontSize="20" Text="(Loop#6)" Margin="10,0,0,0"></TextBlock>
+                <TextBlock x:Name="LoopText" FontSize="20" Text="(Loop#6)" Margin="10,0,0,0"></TextBlock>
             </StackPanel>
             <StackPanel x:Name="WebsiteBar" Orientation="Horizontal">
                 <TextBlock FontWeight="Bold" FontSize="30" x:Name="Website" Text="Website:"/>
@@ -34,15 +34,11 @@
             </StackPanel>
             <StackPanel x:Name="NVIDIABar" Orientation="Horizontal">
                 <TextBlock FontWeight="Bold" FontSize="30" Text="NVIDIA:"/>
-                <TextBlock FontSize="30" Text="3090"/>
-                <TextBlock FontSize="30" Text="3090"/>
-                <TextBlock FontSize="30" Text="3060TI"/>
+
             </StackPanel>
             <StackPanel x:Name="AMDBar" Orientation="Horizontal">
                 <TextBlock FontWeight="Bold" FontSize="30" Text="AMD:"/>
-                <TextBlock FontSize="30" Text="6900XT"/>
-                <TextBlock FontSize="30" Text="6800XT"/>
-                <TextBlock FontSize="30" Text="6800"/>
+
             </StackPanel>
         </StackPanel>
 
@@ -50,7 +46,7 @@
             <TextBlock FontSize="20" FontWeight="Bold" Text="   Items in Stock:" Margin="0,0,0,5"></TextBlock>
             <ScrollViewer>
                 <Border BorderThickness="1" BorderBrush="Black" >
-                    <TextBlock x:Name="Result" Width="950" Height="290" ></TextBlock>
+                    <TextBlock x:Name="StockText" Width="950" Height="290" ></TextBlock>
                 </Border>
             </ScrollViewer>
 

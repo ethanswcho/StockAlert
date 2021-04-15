@@ -15,12 +15,10 @@ namespace StockAlert
     // Designed to batch scrape Memory Express GPUs
     class MEScraper : WebScraper
     {
-        public MEScraper()
-        {
+        public MEScraper(UIManager uim) : base(uim){
             ws = Website.MemoryExpress;
             linkPrefix = "https://www.memoryexpress.com";
-        }
-
+         }
         public override void Scrape(Dictionary<Maker, Dictionary<string, string>> URLDict)
         {
 
@@ -32,6 +30,7 @@ namespace StockAlert
                 {
                     // Write Model
                     Debug.WriteLine("       " + l2.Key);
+                    Task.Factory.StartNew(() => this.uim.UpdateUI(l2.Key));
                     // Scrape the given page for given model ex) RTX 30080
                     ScrapePage(l2.Value);
                     Debug.WriteLine("");

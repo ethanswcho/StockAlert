@@ -12,23 +12,30 @@ namespace StockAlert
 {
     class StockChecker
     {
-        public StockChecker()
+        public StockChecker(UIManager uim)
         {
-            mes = new MEScraper();
-            ccs = new CCScraper();
+            this.uim = uim;
+            mes = new MEScraper(uim);
+            ccs = new CCScraper(uim);
         }
 
         public void CheckStock(Dictionary<Website, Dictionary<Maker, Dictionary<string, string>>> Query)
         {
-            // Iterate over each Website/Stock pair
-            foreach(var l1 in Query)
+            int counter = 1;
+            while (true)
             {
-                Website w = l1.Key;
-                // Depending on the website set the correct scraper
-                var Scraper = GetScraper(w);
-                Debug.WriteLine(w.ToString());
-                // Scrape using the website's dedicated scraper
-                Scraper.Scrape(l1.Value);
+                this.uim.UpdateLoopText(counter);
+
+                // Iterate over each Website/Stock pair
+                foreach (var l1 in Query)
+                {
+                    Website w = l1.Key;
+                    // Depending on the website set the correct scraper
+                    var Scraper = GetScraper(w);
+                    uim.UpdateUI(w);
+                    // Scrape using the website's dedicated scraper
+                    Scraper.Scrape(l1.Value);
+                }
             }
         }
 
@@ -46,13 +53,14 @@ namespace StockAlert
                     break;
 
                 default:
-                    return new WebScraper();
+                    return new WebScraper(uim);
                     break;
             }
         }
 
         private MEScraper mes;
         private CCScraper ccs;
+        private UIManager uim;
     }
 
     

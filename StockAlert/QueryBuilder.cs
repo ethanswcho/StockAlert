@@ -162,7 +162,6 @@ namespace StockAlert
                     {
                         Debug.WriteLine("       " + l3.Key + " => " + l3.Value);
                     }
-
                 }
                 Debug.WriteLine("");
             }

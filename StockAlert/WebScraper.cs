@@ -13,8 +13,9 @@ namespace StockAlert
     // Parent class of all scraper classes.
     class WebScraper
     {
-        public WebScraper()
+        public WebScraper(UIManager uim)
         {
+            this.uim = uim;
             web = new HtmlWeb();
         }
         
@@ -42,6 +43,8 @@ namespace StockAlert
         protected HtmlWeb web;
         // Notes which Website this scraper is for
         protected Website ws;
+
+        protected UIManager uim;
 
     }
 }

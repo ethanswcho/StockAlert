@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace StockAlert
 {
@@ -28,23 +29,25 @@ namespace StockAlert
 
         private void showScanPage(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new ScanPage());
 
             //List models in descending order for uniformity
             NVIDIAWanted = NVIDIAWanted.OrderByDescending(x => x).ToList();
             AMDWanted = AMDWanted.OrderByDescending(x => x).ToList();
-            
+
             // If testing:
             //NVIDIAWanted.Add("Test1");
             //NVIDIAWanted.Add("Test2");
 
-            // Build Query to only search for selected models/makers
-            QueryBuilder qb = new QueryBuilder(NVIDIAWanted, AMDWanted);
-            var Query = qb.BuildAndGetQuery();
+            // Init scanpage and change to sp
 
-            StockChecker sc = new StockChecker();
-            sc.CheckStock(Query);
+            ScanPage sp = new ScanPage(NVIDIAWanted, AMDWanted);
+            sp.AsyncInitUIM();
+            this.NavigationService.Navigate(sp);
+
+            Task.Delay(3000);
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => sp.start())).Wait();
         }
+
 
         // When a button is clicked, we need to check if this is the 1st click or 2nd click
         private void ButtonPressed(object sender, RoutedEventArgs e)
