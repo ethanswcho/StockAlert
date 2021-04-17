@@ -22,7 +22,7 @@ namespace StockAlert
         public void CheckStock(Dictionary<Website, Dictionary<Maker, Dictionary<string, string>>> Query)
         {
             int counter = 1;
-            while (true)
+            while (KeepCheckingStock)
             {
                 this.uim.UpdateLoopText(counter);
 
@@ -36,6 +36,7 @@ namespace StockAlert
                     // Scrape using the website's dedicated scraper
                     Scraper.Scrape(l1.Value);
                 }
+                counter++;
             }
         }
 
@@ -61,6 +62,7 @@ namespace StockAlert
         private MEScraper mes;
         private CCScraper ccs;
         private UIManager uim;
+        public bool KeepCheckingStock = true;
     }
 
     

@@ -7,6 +7,7 @@ using HtmlAgilityPack;
 using System.Collections;
 // Debug.WriteLine();
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace StockAlert
 {
@@ -15,6 +16,7 @@ namespace StockAlert
     {
         public WebScraper(UIManager uim)
         {
+            bgw = new BackgroundWorker();
             this.uim = uim;
             web = new HtmlWeb();
         }
@@ -45,6 +47,8 @@ namespace StockAlert
         protected Website ws;
 
         protected UIManager uim;
+
+        protected static BackgroundWorker bgw;
 
     }
 }

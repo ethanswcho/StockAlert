@@ -26,15 +26,9 @@ namespace StockAlert
             InitializeComponent();
             this.NVIDIAWanted = NVIDIAWanted;
             this.AMDWanted = AMDWanted;
-
-            
-
-
             // Build Query to only search for selected models/makers
-            
         }
 
-        
 
         // Asynchronously construct UI Manager
         public async void AsyncInitUIM()
@@ -56,25 +50,24 @@ namespace StockAlert
             }
         }
 
-
-
         public void start()
         {
             QueryBuilder qb = new QueryBuilder(NVIDIAWanted, AMDWanted);
             var Query = qb.BuildAndGetQuery();
 
-            StockChecker sc = new StockChecker(uim);
+            sc = new StockChecker(uim);
             sc.CheckStock(Query);
         }
 
         private void showMainPage(object sender, RoutedEventArgs e)
         {
+            sc.KeepCheckingStock = false;
             this.NavigationService.Navigate(new MainPage());
         }
 
         UIManager uim;
         private List<string> NVIDIAWanted;
         private List<string> AMDWanted;
-
+        private StockChecker sc;
     }
 }

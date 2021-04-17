@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Diagnostics;
 
 namespace StockAlert
 {
@@ -81,8 +82,10 @@ namespace StockAlert
             {
                 this.WebsiteDict[CurrentWebsite].Foreground = DefaultColor;
             }
-            
+
+
             this.WebsiteDict[ws].Foreground = CurrentColor;
+
             this.CurrentWebsite = ws;
         }
 

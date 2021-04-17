@@ -8,6 +8,8 @@ using System.Collections;
 // Debug.WriteLine();
 using System.Diagnostics;
 using System.Windows.Threading;
+using System.Windows;
+using System.ComponentModel;
 
 namespace StockAlert
 {
@@ -29,14 +31,33 @@ namespace StockAlert
                     // Write Model
                     Debug.WriteLine("       " + l2.Key);
                     //Task.Factory.StartNew(() => this.uim.UpdateUI(l2.Key));
-                    
+                    /*
+                    Application.Current.Dispatcher.Invoke(
+                        new Action(() => this.uim.UpdateUI(l2.Key))
+                        );
+                    */
+
+                    Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
+                    {
+                        this.uim.UpdateUI(l2.Key);
+                    }), DispatcherPriority.ContextIdle, null);
+
                     // Scrape the given page for given model ex) RTX 30080
-                    ScrapePage(l2.Value);
+                    //ScrapePage(l2.Value);
+
                     Debug.WriteLine("");
                 }
 
                 Debug.WriteLine("");
             }
+        }
+
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            Debug.WriteLine("Starting bgw_DoWork!");
+            ScrapePage((string)e.Argument);
         }
 
         private void ScrapePage(string URL)
