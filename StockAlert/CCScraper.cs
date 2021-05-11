@@ -39,11 +39,12 @@ namespace StockAlert
 
                     Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                     {
+                        this.uim.UpdateUI(ws);
                         this.uim.UpdateUI(l2.Key);
                     }), DispatcherPriority.ContextIdle, null);
 
                     // Scrape the given page for given model ex) RTX 30080
-                    //ScrapePage(l2.Value);
+                    ScrapePage(l2.Value);
 
                     Debug.WriteLine("");
                 }

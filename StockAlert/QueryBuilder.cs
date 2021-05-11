@@ -71,7 +71,7 @@ namespace StockAlert
             URLDict[Website.MemoryExpress][Maker.NVIDIA] = new Dictionary<string, string>()
             {                
                 {"3090", "https://www.memoryexpress.com/Category/VideoCards?FilterID=0faf222f-0400-d211-b926-04fdfc0bfa85" },
-                {"3080", "https://www.memoryexpress.com/Category/VideoCards?FilterID=45788ec3-6bb1-e460-abe6-afa274b9d30e" },
+                { "3080", "https://www.memoryexpress.com/Category/VideoCards?FilterID=45788ec3-6bb1-e460-abe6-afa274b9d30e" },
                 {"3070", "https://www.memoryexpress.com/Category/VideoCards?FilterID=e3034e65-f2ac-35f1-26eb-277b7a7e9ce9" },
                 {"3060TI", "https://www.memoryexpress.com/Category/VideoCards?FilterID=75668704-944f-8e1a-4cca-036beb9638a8" },
                 {"3060", "https://www.memoryexpress.com/Category/VideoCards?FilterID=f1b0a6e4-f41e-5fea-c242-d1bac7b02bf2"},

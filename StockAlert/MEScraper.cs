@@ -46,7 +46,7 @@ namespace StockAlert
 
                     Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                     {
-                        Debug.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        this.uim.UpdateUI(ws);
                         this.uim.UpdateUI(l2.Key);
                     }), DispatcherPriority.ContextIdle,null);
 
@@ -69,6 +69,7 @@ namespace StockAlert
         private void ScrapePage(string URL)
         {
             // Load the webpage containing current GPU (ex. page of only RTX 3080s)
+            
             HtmlDocument doc = web.Load(URL);
             // Select all nodes that contain individual item information
             HtmlNodeCollection items = doc.DocumentNode.SelectNodes("//div[@class='c-shca-icon-item']");

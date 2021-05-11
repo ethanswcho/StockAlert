@@ -32,7 +32,6 @@ namespace StockAlert
                     Website w = l1.Key;
                     // Depending on the website set the correct scraper
                     var Scraper = GetScraper(w);
-                    uim.UpdateUI(w);
                     // Scrape using the website's dedicated scraper
                     Scraper.Scrape(l1.Value);
                 }

@@ -97,6 +97,10 @@ namespace StockAlert
                 this.ModelDict[CurrentModel].Foreground = DefaultColor;
             }
             this.ModelDict[model].Foreground = CurrentColor;
+
+            TextBlock tb = this.ModelDict[model];
+            tb.InvalidateVisual();
+            tb.UpdateLayout();
             this.CurrentModel = model;
         }
 
