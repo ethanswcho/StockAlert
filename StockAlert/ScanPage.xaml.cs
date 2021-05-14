@@ -26,7 +26,6 @@ namespace StockAlert
             InitializeComponent();
             this.NVIDIAWanted = NVIDIAWanted;
             this.AMDWanted = AMDWanted;
-            // Build Query to only search for selected models/makers
         }
 
 
@@ -54,10 +53,11 @@ namespace StockAlert
         {
             QueryBuilder qb = new QueryBuilder(NVIDIAWanted, AMDWanted);
             var Query = qb.BuildAndGetQuery();
-
             sc = new StockChecker(uim);
             sc.CheckStock(Query);
         }
+
+
 
         private void showMainPage(object sender, RoutedEventArgs e)
         {

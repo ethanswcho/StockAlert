@@ -34,19 +34,51 @@ namespace StockAlert
             NVIDIAWanted = NVIDIAWanted.OrderByDescending(x => x).ToList();
             AMDWanted = AMDWanted.OrderByDescending(x => x).ToList();
 
-            // If testing:
-            //NVIDIAWanted.Add("Test1");
-            //NVIDIAWanted.Add("Test2");
+            // Testing module. 
+            // Query will include pages where the items are always in stock.
+            bool testing = false;
+            if (testing)
+            {
+                NVIDIAWanted.Add("Test1");
+                NVIDIAWanted.Add("Test2");
+            }
+            
 
-            // Init scanpage and change to sp
+            // If selection is valid, then transition into ScanPage
+            if (isSelectionValid()) {
+                ScanPage sp = new ScanPage(NVIDIAWanted, AMDWanted);
+                sp.AsyncInitUIM();
+                this.NavigationService.Navigate(sp);
 
-            ScanPage sp = new ScanPage(NVIDIAWanted, AMDWanted);
-            sp.AsyncInitUIM();
-            this.NavigationService.Navigate(sp);
-
-            Task.Delay(3000);
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => sp.start())).Wait();
+                Task.Delay(3000);
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => sp.start())).Wait();
+            }
+            // Selection is not valid (selection is null - no items chosen)
+            // Error message should be displayed
+            else
+            {
+                DisplayErrorMessage();
+            }
+            
         }
+
+        //
+        private bool isSelectionValid()
+        {
+            if (this.NVIDIAWanted.Count == 0 && this.AMDWanted.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        // If selection is not Valid, we need to inform the user.
+        // Display an error message to inform that they need to make choice(s).
+        private void DisplayErrorMessage()
+        {
+            MessageBox.Show("Please select at least one product", "STOCK ALERT");
+        }
+
 
 
         // When a button is clicked, we need to check if this is the 1st click or 2nd click

@@ -97,7 +97,10 @@ namespace StockAlert
                 // The stockNode is not there, the item is (probably) in stock.
                 catch (InvalidOperationException)
                 {
-                    base.InStock(link);
+                    Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
+                    {
+                        base.InStock(link);
+                    }), DispatcherPriority.ContextIdle, null);
                     continue;
                 }
 
@@ -111,7 +114,11 @@ namespace StockAlert
                 // The stockNode is there but it does not say out of stock. the item is (probably) in stock.
                 else
                 {
-                    base.InStock(link);
+                    Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
+                    {
+                        base.InStock(link);
+                    }), DispatcherPriority.ContextIdle, null);
+                    continue;
                 } 
             }
         }

@@ -46,7 +46,11 @@
             <TextBlock FontSize="20" FontWeight="Bold" Text="   Items in Stock:" Margin="0,0,0,5"></TextBlock>
             <ScrollViewer>
                 <Border BorderThickness="1" BorderBrush="Black" >
-                    <TextBlock x:Name="StockText" Width="950" Height="290" ></TextBlock>
+                    <TextBlock x:Name="StockText" Width="950" Height="290"
+                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                               ScrollViewer.VerticalScrollBarVisibility="Auto"
+                               ScrollViewer.CanContentScroll="True">
+                    </TextBlock>
                 </Border>
             </ScrollViewer>
 

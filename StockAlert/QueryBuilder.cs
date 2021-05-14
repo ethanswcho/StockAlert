@@ -149,6 +149,10 @@ namespace StockAlert
             return Query;
         }
 
+        // Checks if the input (NVIDIAWanted and AMDWanted) is valid or not.
+        // Currently only checks if they are null or not.
+
+
         // Helper method to pretty print nested dictionary structure for URLs and Query
         public void PrettyPrintDict(Dictionary<Website, Dictionary<Maker, Dictionary<string, string>>> dict)
         {

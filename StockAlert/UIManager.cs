@@ -109,6 +109,12 @@ namespace StockAlert
             this.LoopText.Text = "Loop#" + count;
         }
 
+        //Update found items in the bottom textblock
+        public void UpdateStockText(string newLine)
+        {
+            StockText.Text += newLine + "\n";
+        }
+
         private StackPanel WebsiteBar;
         private StackPanel NVIDIABar;
         private StackPanel AMDBar;

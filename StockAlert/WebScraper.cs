@@ -8,6 +8,8 @@ using System.Collections;
 // Debug.WriteLine();
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Media;
+
 
 namespace StockAlert
 {
@@ -27,13 +29,21 @@ namespace StockAlert
         {
         }
         
-        // When we find an item that is in stock, alert the user
+        // When we find an item that is in stock, alert the user.
+        // Play a sound and post current time and the website address in the bottom textblock.
         public void InStock(string link)
         {
             //Make Noise
             //Record somewhere
             //open link (only once)
             Debug.WriteLine("               In Stock: " + link);
+
+            SystemSounds.Asterisk.Play();
+
+            string newStockLine = DateTime.Now.ToString("h:mm:ss tt");
+            newStockLine = newStockLine + " " + link;
+
+            this.uim.UpdateStockText(newStockLine);
         }
 
         public void NotInStock()
