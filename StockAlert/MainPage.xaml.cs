@@ -36,7 +36,7 @@ namespace StockAlert
 
             // Testing module. 
             // Query will include pages where the items are always in stock.
-            bool testing = false;
+            bool testing = true;
             if (testing)
             {
                 NVIDIAWanted.Add("Test1");

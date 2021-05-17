@@ -33,6 +33,7 @@ namespace StockAlert
                 {
                     // Write Model
                     Debug.WriteLine("       " + l2.Key);
+                    string GPUInfo = l1.Key.ToString() + l2.Key.ToString();
 
                     /*
                     Task.Factory.StartNew(() => this.uim.UpdateUI(l2.Key));
@@ -51,13 +52,14 @@ namespace StockAlert
                     }), DispatcherPriority.ContextIdle,null);
 
                     // Scrape the given page for given model ex) RTX 30080
-                    ScrapePage(l2.Value);
+                    ScrapePage(l2.Value, GPUInfo);
 
                     Debug.WriteLine("");
                 }
             }
         }
 
+        /*
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -65,8 +67,9 @@ namespace StockAlert
             Debug.WriteLine("Starting bgw_DoWork!");
             ScrapePage((string)e.Argument);
         }
+        */
 
-        private void ScrapePage(string URL)
+        private void ScrapePage(string URL, string GPUInfo)
         {
             // Load the webpage containing current GPU (ex. page of only RTX 3080s)
             
@@ -99,7 +102,7 @@ namespace StockAlert
                 {
                     Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                     {
-                        base.InStock(link);
+                        base.InStock(link, GPUInfo);
                     }), DispatcherPriority.ContextIdle, null);
                     continue;
                 }
@@ -116,7 +119,7 @@ namespace StockAlert
                 {
                     Dispatcher.CurrentDispatcher.Invoke(new Action(() =>
                     {
-                        base.InStock(link);
+                        base.InStock(link, GPUInfo);
                     }), DispatcherPriority.ContextIdle, null);
                     continue;
                 } 

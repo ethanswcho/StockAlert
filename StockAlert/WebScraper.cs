@@ -31,7 +31,7 @@ namespace StockAlert
         
         // When we find an item that is in stock, alert the user.
         // Play a sound and post current time and the website address in the bottom textblock.
-        public void InStock(string link)
+        public void InStock(string link, string GPUInfo)
         {
             //Make Noise
             //Record somewhere
@@ -41,7 +41,7 @@ namespace StockAlert
             SystemSounds.Asterisk.Play();
 
             string newStockLine = DateTime.Now.ToString("h:mm:ss tt");
-            newStockLine = newStockLine + " " + link;
+            newStockLine = newStockLine + " " + GPUInfo + " " + link;
 
             this.uim.UpdateStockText(newStockLine);
         }
