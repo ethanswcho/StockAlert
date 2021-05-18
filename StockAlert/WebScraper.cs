@@ -43,6 +43,14 @@ namespace StockAlert
             string newStockLine = DateTime.Now.ToString("h:mm:ss tt");
             newStockLine = newStockLine + " " + GPUInfo + " " + link;
 
+            // Open the found item's link on browser
+            var psi = new ProcessStartInfo(link)
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(psi);
+
             this.uim.UpdateStockText(newStockLine);
         }
 
